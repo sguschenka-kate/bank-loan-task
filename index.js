@@ -101,5 +101,24 @@ function checkTerm() {
 
 function calculateLoan() {
   result = loan + (loan * (rate / 100) * term); 
-  alert('Сумма кредита составляет ' + loan + ' гривен. Процентная ставка ' + rate + '%. Сумма, которую ты должен вернуть через ' + term + ' лет, составляет ' + result + ' гривен.');
+  let years = getYears();
+  alert('Сумма кредита составляет ' + loan + ' гривен. Процентная ставка ' + rate + '%. Сумма, которую ты должен вернуть через ' + term + ' ' + years + ' , составляет ' + result + ' гривен.');
+}
+
+function getYears() {
+  if (11 <= term && term <= 14) {
+    return 'лет'
+  }
+
+  let number = String(term);
+  number = +number[number.length-1];
+
+  console.log(number);
+  if (number === 1) {
+    return 'год';
+  } else if (2 <= number && number <= 4) {
+    return 'года';
+  } else {
+    return 'лет';
+  }
 }
